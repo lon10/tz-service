@@ -1,0 +1,13 @@
+development: &config
+  adapter: postgresql
+  host: localhost
+  username:
+  password:
+  database: tz_postgis_service
+  encoding: utf8
+
+test:
+  <<: *config
+
+poduction:
+  <<: *config
