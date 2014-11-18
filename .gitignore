@@ -1,0 +1,19 @@
+# Ignore bundler config
+.bundle
+
+# Ignore the default SQLite database.
+db/*.sqlite3
+config/database.yml
+
+# Ignore all logfiles and tempfiles.
+log/*.log
+tmp
+
+vendor/ruby
+.DS_Store
+libpeerconnection.log
+public/
+uploads/
+*.orig
+/.idea
+.rvmrc
