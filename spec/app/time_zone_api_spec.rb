@@ -15,10 +15,6 @@ describe 'API' do
     { timezone: 'Europe/Moscow' }
   }
 
-  let(:offset_response) {
-    { offset: 3*60*60 }
-  }
-
   it 'should greet us' do
     get '/'
 
