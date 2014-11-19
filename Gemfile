@@ -4,6 +4,8 @@ gem 'rake'
 gem 'activerecord'
 gem 'pg'
 gem 'grape'
+gem 'nokogiri'
+gem 'rest-client'
 
 group :development, :test do
   gem 'shotgun'

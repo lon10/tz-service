@@ -3,4 +3,4 @@ use ActiveRecord::ConnectionAdapters::ConnectionManagement
 
 require './app/environment'
 
-run TimeZoneAPI
+run TimezoneAPI

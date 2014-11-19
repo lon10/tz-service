@@ -7,12 +7,29 @@ describe 'API' do
     }
   }
 
+  let(:wrong_coords) {
+    {
+      lat: 0,
+      lng: 0
+    }
+  }
+
   let(:error) {
     { error: 'lat is missing, lng is missing' }
   }
 
   let(:name_response) {
-    { timezone: 'Europe/Moscow' }
+    {
+      timezone: 'Europe/Moscow',
+      offset: 10800
+    }
+  }
+
+  let(:empty_result) {
+    {
+      timezone: nil,
+      offset:nil
+    }
   }
 
   it 'should greet us' do
@@ -43,6 +60,15 @@ describe 'API' do
 
       its(:status) {should eq 200}
       its(:body) {should eq name_response.to_json}
+    end
+
+    context 'with wrong coords' do
+      before do
+        get '/timezone/name', wrong_coords
+      end
+
+      its(:status) {should eq 200}
+      its(:body) {should eq empty_result.to_json}
     end
 
   end

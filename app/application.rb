@@ -1,8 +1,8 @@
 ActiveRecord::Base.establish_connection(
-  adapter: Configuration.adapter,
-  host: Configuration.host,
-  database: Configuration.database,
-  username: Configuration.username,
-  password: Configuration.password,
-  encoding: Configuration.encoding
+  adapter: DBConfiguration.adapter,
+  host: DBConfiguration.host,
+  database: DBConfiguration.database,
+  username: DBConfiguration.username,
+  password: DBConfiguration.password,
+  encoding: DBConfiguration.encoding
 )

@@ -48,9 +48,13 @@ GEM
     ice_nine (0.11.0)
     json (1.8.1)
     method_source (0.8.2)
+    mime-types (2.4.3)
+    mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    nokogiri (1.6.4.1)
+      mini_portile (~> 0.6.0)
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -67,6 +71,8 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     rake (10.3.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -94,10 +100,12 @@ DEPENDENCIES
   activerecord
   byebug
   grape
+  nokogiri
   pg
   pry
   pry-byebug
   rack-test
   rake
+  rest-client
   rspec
   shotgun
