@@ -1,4 +1,4 @@
-class TimeZoneAPI < Grape::API
+class TimezoneAPI < Grape::API
 
   format :json
   default_format :json
@@ -18,8 +18,12 @@ class TimeZoneAPI < Grape::API
     end
     get '/name' do
       name = TimezoneNameService.new(params[:lat], params[:lng]).name
+      offset = TimezoneOffsetService.new(name).offset
 
-      { timezone: name }
+      {
+        timezone: name,
+        offset: offset
+      }
     end
 
   end
