@@ -1,6 +1,5 @@
 namespace :offsets do
 
-  #TODO write it to some yaml
   desc 'Offsets actualization'
   task :actualize do
     #Getting all offsets
