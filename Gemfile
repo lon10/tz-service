@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 gem 'rake'
 gem 'activerecord'
@@ -8,8 +8,6 @@ gem 'nokogiri'
 gem 'rest-client'
 
 group :development, :test do
-  gem 'shotgun'
-
   gem 'byebug'
   gem 'pry'
   gem 'pry-byebug'

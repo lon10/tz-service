@@ -11,7 +11,6 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'grape'
 require 'json'
-require 'pry'
 require 'active_record'
 require 'yaml'
 
@@ -21,3 +20,7 @@ require 'timezone_offset_service'
 require 'db_configuration'
 require 'application'
 require 'timezone_api'
+
+if (ENV['RACK_ENV'] != 'production')
+  require 'pry'
+end

@@ -15,5 +15,4 @@ RSpec.configure do |config|
   def app
     TimezoneAPI
   end
-
 end

@@ -1,10 +1,8 @@
 namespace :offsets do
-
   desc 'Offsets actualization'
   task :actualize do
     #Getting all offsets
-    sql = 'select tzid from tz_world group by tzid;'
-    offsets = ActiveRecord::Base.connection.execute(sql)
+    offsets = ActiveRecord::Base.connection.execute('select tzid from tz_world group by tzid;')
 
     #Parsing offsets from http://www.zeitverschiebung.net
     data = offsets.map do |record|
@@ -13,6 +11,7 @@ namespace :offsets do
 
       #America/Dominica -> america--dominica
       tz = tzid.downcase.gsub('/', '--')
+
       url = "http://www.zeitverschiebung.net/en/timezone/#{tz}"
 
       #Getting timezone page
@@ -21,10 +20,15 @@ namespace :offsets do
 
       #Parse GMT/UTC hours... Sorry about this shit code...
       p "Parsing #{tz}"
-      hours = page.css('table.timezoneinfo')[0].css('tr')[0].css('td')[1].css('strong').text.gsub(' hours', '').to_f rescue 0
+      hours = Float(page.css('table.timezoneinfo')[0].css('tr')[0].css('td')[1].css('strong').text.gsub(' hours', '').gsub(' hour', '')) rescue nil
 
       #Making a GMT/UTC offset in second
-      secs = hours.to_i * 60 * 60
+      secs =
+      if hours
+        (hours * 1.hour).to_i
+      else
+        nil
+      end
       p "Done! #{tzid} -> #{secs} seconds"
       p '------------------------------------------'
 

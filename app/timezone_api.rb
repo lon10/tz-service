@@ -1,5 +1,4 @@
 class TimezoneAPI < Grape::API
-
   format :json
   default_format :json
   default_error_formatter :txt
@@ -10,7 +9,6 @@ class TimezoneAPI < Grape::API
   end
 
   namespace 'timezone' do
-
     desc 'Time zone name by coordinates'
     params do
       requires :lat, type: Float, desc: 'Latitude'
@@ -25,7 +23,5 @@ class TimezoneAPI < Grape::API
         offset: offset
       }
     end
-
   end
-
 end

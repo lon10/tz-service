@@ -1,37 +1,4 @@
 describe 'API' do
-
-  let(:params) {
-    {
-      lat: 55.7914056,
-      lng: 49.1120427
-    }
-  }
-
-  let(:wrong_coords) {
-    {
-      lat: 0,
-      lng: 0
-    }
-  }
-
-  let(:error) {
-    { error: 'lat is missing, lng is missing' }
-  }
-
-  let(:name_response) {
-    {
-      timezone: 'Europe/Moscow',
-      offset: 10800
-    }
-  }
-
-  let(:empty_result) {
-    {
-      timezone: nil,
-      offset:nil
-    }
-  }
-
   it 'should greet us' do
     get '/'
 
@@ -50,27 +17,25 @@ describe 'API' do
       end
 
       its(:status) {should eq 400}
-      its(:body) {should eq error.to_json}
+      its(:body) { should eq({ error: 'lat is missing, lng is missing' }.to_json) }
     end
 
     context 'with right params' do
       before do
-        get '/timezone/name', params
+        get '/timezone/name', { lat: 55.7914056, lng: 49.1120427 }
       end
 
-      its(:status) {should eq 200}
-      its(:body) {should eq name_response.to_json}
+      it {should be_ok}
+      its(:body) { should eq({ timezone: 'Europe/Moscow', offset: 10800 }.to_json) }
     end
 
     context 'with wrong coords' do
       before do
-        get '/timezone/name', wrong_coords
+        get '/timezone/name', { lat: 0.0, lng: 0.0 }
       end
 
-      its(:status) {should eq 200}
-      its(:body) {should eq empty_result.to_json}
+      it {should be_ok}
+      its(:body) { should eq({ timezone: nil, offset: nil }.to_json) }
     end
-
   end
-
 end

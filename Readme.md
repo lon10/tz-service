@@ -55,5 +55,5 @@ Done!
 ###Tests
 
 ```
-$ bundle exec rpsec
+bundle exec rpsec
 ```

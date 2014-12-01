@@ -1,5 +1,4 @@
 class CreateTzOffsets < ActiveRecord::Migration
-
   def change
     create_table :tz_offsets do |t|
       t.string :tz_name, unique: true
@@ -8,5 +7,4 @@ class CreateTzOffsets < ActiveRecord::Migration
       t.timestamps
     end
   end
-
 end
