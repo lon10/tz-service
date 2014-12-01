@@ -43,7 +43,7 @@ To get offsets make 'actualize' task
 bundle exec rake offsets:actualize
 ```
 
-To ensure that your offsets is actual make this task regularly
+To ensure that your offsets is actual make this task regularly.
 
 Done!
 
