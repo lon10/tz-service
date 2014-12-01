@@ -6,7 +6,7 @@ class TimezoneOffsetService
 
   def offset
     if (@timezone.present?)
-      TimezoneOffsets::OFFSETS.to_h[@timezone]
+      TzOffset.find_by_tz_name(@timezone).offset
     else
       nil
     end

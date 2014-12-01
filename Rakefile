@@ -5,3 +5,4 @@
 require File.expand_path('../app/environment.rb', __FILE__)
 
 import 'lib/tasks/offsets.rake'
+import 'lib/tasks/db.rake'
